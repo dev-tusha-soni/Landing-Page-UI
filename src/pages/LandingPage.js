@@ -10,7 +10,7 @@ const LandingPage = () => {
       <div style={styles.container}>
         <div style={styles.card}>
           <h1 style={styles.title}>Welcome to PopX</h1>
-          <p style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p style={styles.text}>Lorem ipsum dolor sit amet.</p>
           <Link to="/signup" style={styles.primaryButton}>Create Account</Link>
           <Link to="/login" style={styles.secondaryButton}>Already Registered? Login</Link>
         </div>
