@@ -1,3 +1,16 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { BrowserRouter } from 'react-router-dom';
+// import App from './App';
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <BrowserRouter basename="/">
+//     <App />
+//   </BrowserRouter>
+// );
+
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -5,7 +18,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename="/your-repo-name">
+  <BrowserRouter basename="/">
     <App />
   </BrowserRouter>
 );
