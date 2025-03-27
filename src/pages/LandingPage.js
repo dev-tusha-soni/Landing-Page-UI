@@ -1,19 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
-    <div>
-      {/* Header Component with Title */}
-      <Header title="Landing Screen" />
-      <div style={styles.container}>
-        <div style={styles.card}>
-          <h1 style={styles.title}>Welcome to PopX</h1>
-          <p style={styles.text}>Lorem ipsum dolor sit amet.</p>
-          <Link to="/signup" style={styles.primaryButton}>Create Account</Link>
-          <Link to="/login" style={styles.secondaryButton}>Already Registered? Login</Link>
-        </div>
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h1 style={styles.title}>Welcome to PopX</h1>
+        <p style={styles.text}>Experience the best platform for your needs.</p>
+        <Link to="/signup" style={styles.primaryButton}>Create Account</Link>
+        <Link to="/login" style={styles.secondaryButton}>Already Registered? Login</Link>
       </div>
     </div>
   );

@@ -1,32 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSignUp = () => {
+    setError('');
+    if (!name || !email || !password) {
+      setError('All fields are required.');
+      return;
+    }
+    if (name.length < 3) {
+      setError('Name must be at least 3 characters long.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError('Invalid email format.');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
     navigate('/profile');
   };
 
   return (
-    <>
-      <Header />
-      <div style={styles.container}>
-        <h1 style={styles.title}>Create your PopX Account</h1>
-        
-        <label style={styles.label}>Full Name</label>
-        <input style={styles.input} type="text" placeholder="Enter your name" />
-        
-        <label style={styles.label}>Email Address</label>
-        <input style={styles.input} type="email" placeholder="Enter email address" />
-        
-        <label style={styles.label}>Password</label>
-        <input style={styles.input} type="password" placeholder="Create password" />
-        
-        <button style={styles.button} onClick={handleSignUp}>Sign Up</button>
-      </div>
-    </>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Create your PopX Account</h1>
+      {error && <p style={styles.error}>{error}</p>}
+      
+      <label style={styles.label}>Full Name</label>
+      <input 
+        style={styles.input} 
+        type="text" 
+        placeholder="Enter your name" 
+        value={name} 
+        onChange={(e) => setName(e.target.value)}
+      />
+      
+      <label style={styles.label}>Email Address</label>
+      <input 
+        style={styles.input} 
+        type="email" 
+        placeholder="Enter email address" 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <label style={styles.label}>Password</label>
+      <input 
+        style={styles.input} 
+        type="password" 
+        placeholder="Create password" 
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button style={styles.button} onClick={handleSignUp}>Sign Up</button>
+    </div>
   );
 };
 
@@ -42,14 +78,12 @@ const styles = {
   title: {
     fontSize: '28px',
     fontWeight: 'bold',
-    marginBottom: '16px'
+    marginBottom: '8px'
   },
   label: {
     color: '#6D28D9',
     fontSize: '14px',
-    fontWeight: 'bold',
-    marginBottom: '8px',
-    display: 'block'
+    fontWeight: 'bold'
   },
   input: {
     width: '100%',
@@ -67,6 +101,10 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
     fontWeight: 'bold'
+  },
+  error: {
+    color: 'red',
+    marginBottom: '16px'
   }
 };
 

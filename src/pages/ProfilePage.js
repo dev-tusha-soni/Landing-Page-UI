@@ -1,51 +1,38 @@
 import React from 'react';
-import Card from '../components/Card';
-import { FaCamera } from 'react-icons/fa';
-import Header from '../components/Header';
-
-// Import Images
-import profileImage from '../images/profile.jpg';
 
 const ProfilePage = () => {
+  const userData = {
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+    joinedDate: 'March 25, 2025'
+  };
+
   return (
-    <>
-      <Header />
-      <Card>
-        <h3>Account Settings</h3>
-        <div style={styles.profileContainer}>
-          <img
-            src={profileImage}
-            alt="Profile"
-            style={styles.profileImage}
-          />
-          
-          <div>
-            <h4>Marry Doe</h4>
-            <p>Marry@Gmail.Com</p>
-          </div>
-        </div>
-        <p>Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam</p>
-      </Card>
-    </>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Welcome, {userData.name}!</h1>
+      <p style={styles.text}>Email: {userData.email}</p>
+      <p style={styles.text}>Joined on: {userData.joinedDate}</p>
+    </div>
   );
 };
 
 const styles = {
-  profileContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    marginBottom: '20px'
+  container: {
+    width: '400px',
+    margin: '100px auto',
+    backgroundColor: '#fff',
+    padding: '40px',
+    borderRadius: '12px',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
   },
-  profileImage: {
-    width: '80px',
-    height: '80px',
-    borderRadius: '50%',
+  title: {
+    fontSize: '28px',
+    fontWeight: 'bold',
+    marginBottom: '16px'
   },
-  cameraIcon: {
-    color: '#6c63ff',
-    fontSize: '20px',
-    cursor: 'pointer'
+  text: {
+    fontSize: '16px',
+    color: '#6b7280'
   }
 };
 

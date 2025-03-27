@@ -4,7 +4,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import ProfilePage from './pages/ProfilePage';
-import PaginationNavigation from './components/PaginationNavigation';
+
 
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-      <PaginationNavigation />
     </Router>
   );
 }
